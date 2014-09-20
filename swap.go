@@ -6,7 +6,6 @@ import (
 	"os"
 	"strconv"
 	"strings"
-	"sync"
 )
 
 type Swap struct {
@@ -34,7 +33,6 @@ func (sw Swap) String() string {
 	return s
 }
 
-var mu sync.Mutex
 var devswap io.ReaderAt
 var devswaperror error
 
