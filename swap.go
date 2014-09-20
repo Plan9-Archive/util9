@@ -1,8 +1,8 @@
 package util9
 
 import (
-	"io"
 	"fmt"
+	"io"
 	"os"
 	"strconv"
 	"strings"
@@ -15,8 +15,8 @@ type Swap struct {
 	KernelPageTotal   uint64
 	UserPageUsed      uint64
 	UserPageTotal     uint64
-	SwapPageUsed		uint64
-	SwapPageTotal	uint64
+	SwapPageUsed      uint64
+	SwapPageTotal     uint64
 	KernelMallocUsed  uint64
 	KernelMallocTotal uint64
 	KernelDrawUsed    uint64
@@ -86,34 +86,31 @@ func ReadSwap() (*Swap, error) {
 			if len(splused) < 2 {
 				break
 			}
-			
+
 			swp.UserPageUsed, _ = strconv.ParseUint(splused[0], 10, 64)
 			swp.UserPageTotal, _ = strconv.ParseUint(splused[1], 10, 64)
 		case 4:
 			splused := strings.Split(num, "/")
-		fmt.Println(splused)
 			if len(splused) < 2 {
 				break
 			}
-			
+
 			swp.SwapPageUsed, _ = strconv.ParseUint(splused[0], 10, 64)
 			swp.SwapPageTotal, _ = strconv.ParseUint(splused[1], 10, 64)
 		case 5:
 			splused := strings.Split(num, "/")
-		fmt.Println(splused)
 			if len(splused) < 2 {
 				break
 			}
-			
+
 			swp.KernelMallocUsed, _ = strconv.ParseUint(splused[0], 10, 64)
 			swp.KernelMallocTotal, _ = strconv.ParseUint(splused[1], 10, 64)
 		case 6:
 			splused := strings.Split(num, "/")
-		fmt.Println(splused)
 			if len(splused) < 2 {
 				break
 			}
-			
+
 			swp.KernelDrawUsed, _ = strconv.ParseUint(splused[0], 10, 64)
 			swp.KernelDrawTotal, _ = strconv.ParseUint(splused[1], 10, 64)
 		}
